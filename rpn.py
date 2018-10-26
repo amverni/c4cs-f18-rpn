@@ -21,7 +21,8 @@ def caclulate(args):
 
 def main():
     while True:
-        caclulate(input('rpn cacl> '))
+        result = caclulate(input('rpn cacl> '))
+        print(result)
 
 if __name__ == '__main__':
     main()
