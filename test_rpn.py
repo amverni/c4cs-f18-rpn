@@ -6,3 +6,5 @@ class TestBasics(unittest.TestCase):
         result = rpn.caclulate('1 1 +')
         self.assertEqual(2, result)
 
+# TODO: Add a test for subtract
+
