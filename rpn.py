@@ -1,30 +1,32 @@
 #!/usr/bin/env python3
+import operator
+
+op = {
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.floordiv
+}
 
 def calculate(args):
     # stack for caclulator
-    stack = []
-    
-    # tokenize input
-    tokens = args.split()
+    stack = args.split()
 
     # process tokens
-    for token in tokens:
+    while len(stack) > 1:
+        token = stack.pop()
         try:
             value = int(token)
             stack.append(value)
         except ValueError:
-            val2 = stack.pop()
-            val1 = stack.pop()
-            if token == '+':
-                result = val1 + val2
-            elif token == '-':
-                result = val1 - val2
-            elif token == '*':
-                result = val1 * val2
-            elif token == '/':
-                result = val1 / val2
-            stack.append(result)
-            return stack[0]
+            val2 = int(stack.pop())
+            val1 = int(stack.pop())
+
+            # look up functino in the operator table
+            func = op[token]
+            result = func(val1, val2)
+            stack.append(str(result))
+    return int(stack[0])
 
 def main():
     while True:
