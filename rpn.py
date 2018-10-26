@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def caclulate(args):
+def calculate(args):
     # stack for caclulator
     stack = []
     
@@ -19,12 +19,16 @@ def caclulate(args):
                 result = val1 + val2
             elif token == '-':
                 result = val1 - val2
+            elif token == '*':
+                result = val1 * val2
+            elif token == '/':
+                result = val1 / val2
             stack.append(result)
             return stack[0]
 
 def main():
     while True:
-        result = caclulate(input('rpn cacl> '))
+        result = calculate(input('rpn cacl> '))
         print(result)
 
 if __name__ == '__main__':

@@ -3,10 +3,18 @@ import rpn
 
 class TestBasics(unittest.TestCase):
     def test_add(self):
-        result = rpn.caclulate('1 1 +')
+        result = rpn.calculate('1 1 +')
         self.assertEqual(2, result)
 
     def test_sub(self):
-        result = rpn.caclulate('4 3 -')
+        result = rpn.calculate('4 3 -')
         self.assertEqual(1, result)
+
+    def test_mult(self):
+        result = rpn.calculate('2 5 *')
+        self.assertEqual(10, result)
+
+    def test_div(self):
+        result = rpn.calculate('25 5 /')
+        self.assertEqual(5, result)
 
