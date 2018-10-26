@@ -6,5 +6,7 @@ class TestBasics(unittest.TestCase):
         result = rpn.caclulate('1 1 +')
         self.assertEqual(2, result)
 
-# TODO: Add a test for subtract
+    def test_sub(self):
+        result = rpn.caclulate('4 3 -')
+        self.assertEqual(1, result)
 

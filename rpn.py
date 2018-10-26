@@ -13,9 +13,12 @@ def caclulate(args):
             value = int(token)
             stack.append(value)
         except ValueError:
-            val1 = stack.pop()
             val2 = stack.pop()
-            result = val1 + val2
+            val1 = stack.pop()
+            if token == '+':
+                result = val1 + val2
+            elif token == '-':
+                result = val1 - val2
             stack.append(result)
             return stack[0]
 
