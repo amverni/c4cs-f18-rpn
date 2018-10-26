@@ -10,11 +10,11 @@ op = {
 
 def calculate(args):
     # stack for caclulator
-    stack = args.split()
-
+    stack = []
     # process tokens
-    while len(stack) > 1:
-        token = stack.pop()
+    # while len(stack) > 1:
+    for arg in args.split():
+        token = arg
         try:
             value = int(token)
             stack.append(value)
