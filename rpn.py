@@ -29,18 +29,18 @@ def calculate(args):
         token = arg
         try:
             value = int(token)
-            stack.append(str(value))
+            stack.append(value)
         except ValueError:
             # look up function in the operator table
             numArgs, func = op[token]
             args = []
             for arg in range(numArgs):
-                args.append(int(stack.pop()))
+                args.append(stack.pop())
             args = args[::-1]
             print(*args)
             print(func)
             result = func(*args)
-            stack.append(str(result))
+            stack.append(result)
     return int(stack[0])
 
 def main():
